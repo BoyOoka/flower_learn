@@ -1,6 +1,6 @@
 import sys
 
-from ..api import BaseWebSocketHandler
+from api import BaseWebSocketHandler
 
 
 class EventsApiHandler(BaseWebSocketHandler):

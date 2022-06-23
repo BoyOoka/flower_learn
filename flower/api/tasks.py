@@ -14,10 +14,10 @@ from celery.result import AsyncResult
 from celery.contrib.abortable import AbortableAsyncResult
 from celery.backends.base import DisabledBackend
 
-from ..utils import tasks
-from ..views import BaseHandler
-from ..utils.broker import Broker
-from ..api.control import ControlHandler
+from utils import tasks
+from views import BaseHandler
+from utils.broker import Broker
+from api.control import ControlHandler
 from collections import OrderedDict
 
 

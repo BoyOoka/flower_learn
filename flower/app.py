@@ -9,16 +9,19 @@ from concurrent.futures import ThreadPoolExecutor
 import celery
 import tornado.web
 
+
 from tornado import ioloop
 from tornado.concurrent import run_on_executor
 from tornado.httpserver import HTTPServer
 from tornado.web import url
 
-from .api import control
-from .urls import handlers as default_handlers
-from .events import Events
-from .inspector import Inspector
-from .options import default_options
+from api import control
+from examples.tasks import app
+
+from urls import handlers as default_handlers, settings
+from events import Events
+from inspector import Inspector
+from options import default_options
 
 
 logger = logging.getLogger(__name__)
@@ -106,3 +109,11 @@ class Flower(tornado.web.Application):
 
     def update_workers(self, workername=None):
         return self.inspector.inspect(workername)
+
+
+if __name__ == '__main__':
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    capp = app
+    f = Flower(capp=capp, **settings)
+    f.start()

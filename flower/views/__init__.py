@@ -9,7 +9,7 @@ from base64 import b64decode
 
 import tornado
 
-from ..utils import template, bugreport, prepend_url
+from utils import template, bugreport, prepend_url
 
 logger = logging.getLogger(__name__)
 

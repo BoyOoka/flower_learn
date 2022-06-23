@@ -5,8 +5,8 @@ import logging
 
 from tornado import web
 
-from ..views import BaseHandler
-from ..utils.tasks import iter_tasks, get_task_by_id, as_dict
+from views import BaseHandler
+from utils.tasks import iter_tasks, get_task_by_id, as_dict
 
 logger = logging.getLogger(__name__)
 

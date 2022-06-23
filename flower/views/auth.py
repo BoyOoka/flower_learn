@@ -11,7 +11,7 @@ import tornado.auth
 from tornado.options import options
 from celery.utils.imports import instantiate
 
-from ..views import BaseHandler
+from views import BaseHandler
 
 
 class GoogleAuth2LoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):

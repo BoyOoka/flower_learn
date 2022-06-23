@@ -2,7 +2,7 @@ import uuid
 import base64
 import os.path
 
-from .. import __version__
+from __init__ import __version__
 
 
 def gen_cookie_secret():

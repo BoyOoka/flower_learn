@@ -3,9 +3,9 @@ import logging
 from tornado import web
 from tornado import gen
 
-from ..views import BaseHandler
-from ..utils.broker import Broker
-from ..api.control import ControlHandler
+from views import BaseHandler
+from utils.broker import Broker
+from api.control import ControlHandler
 
 
 logger = logging.getLogger(__name__)

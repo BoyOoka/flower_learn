@@ -13,8 +13,7 @@ from tornado.ioloop import PeriodicCallback
 from celery.events import EventReceiver
 from celery.events.state import State
 from tornado.options import options
-
-from . import api
+import api
 
 from collections import Counter
 
@@ -192,6 +191,7 @@ class Events(threading.Thread):
                                          handlers={"*": self.on_event},
                                          app=self.capp)
                     try_interval = 1
+                    print("Saving state to '%s'...", self.db)
                     logger.debug("Capturing events...")
                     recv.capture(limit=None, timeout=None, wakeup=True)
             except (KeyboardInterrupt, SystemExit):
@@ -208,6 +208,7 @@ class Events(threading.Thread):
                 time.sleep(try_interval)
 
     def save_state(self):
+        print("Saving state to '%s'...", self.db)
         logger.debug("Saving state to '%s'...", self.db)
         state = shelve.open(self.db, flag='n')
         state['events'] = self.state

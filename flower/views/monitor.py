@@ -2,7 +2,7 @@ import prometheus_client
 
 from tornado import gen
 
-from ..views import BaseHandler
+from views import BaseHandler
 
 
 class Metrics(BaseHandler):

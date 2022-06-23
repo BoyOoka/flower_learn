@@ -4,10 +4,11 @@ from datetime import datetime
 
 from celery import Celery
 
+import celeryconfig
 
 app = Celery("tasks",
-             broker=os.environ.get('CELERY_BROKER_URL', 'redis://'),
-             backend=os.environ.get('CELERY_RESULT_BACKEND', 'redis'))
+             )
+app.config_from_object(celeryconfig)
 app.conf.CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
 app.conf.CELERY_WORKER_SEND_TASK_EVENTS = True
 

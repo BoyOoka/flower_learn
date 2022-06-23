@@ -7,7 +7,7 @@ from tornado import web
 from tornado import gen
 from tornado import util
 
-from ..views import BaseHandler
+from views import BaseHandler
 
 
 logger = logging.getLogger(__name__)

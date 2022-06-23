@@ -3,8 +3,8 @@ import logging
 from tornado import web
 from tornado import gen
 
-from ..views import BaseHandler
-from ..api.workers import ListWorkers
+from views import BaseHandler
+from api.workers import ListWorkers
 
 
 logger = logging.getLogger(__name__)
